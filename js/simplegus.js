@@ -44,7 +44,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
   });
 }
 
-
+//add fields here that you do not want displayed in the popupInfo
 function metadata(properties) {
   var obj = Object.keys(properties);
   var info = "";
@@ -52,6 +52,10 @@ function metadata(properties) {
     var prop = obj[p];
     if (prop != 'lat' &&
         prop != 'lng' &&
+        prop != 'LocLink' &&
+        prop != 'CoordinateSource' &&
+        prop != 'Updater' &&
+        prop != 'Updated' &&		
         prop != 'rowNumber') {
       info += "<p><strong>"+prop+"</strong>: "+properties[prop]+"</p>";
     }
