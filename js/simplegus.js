@@ -13,10 +13,11 @@ function getSpreadsheet(key){
 
 function buildMap(data, tabletop) {
 
+L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWIHzbnOTebcQ';
+
   // build map
-  var map = L.map('map').setView([0,0],1);
+  var map = L.mapbox.map('map', 'mapbox.light').setView([0,0],1);
   var points = L.featureGroup();
-  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png').addTo(map);
 
   for(var i=0;i<data.length;i++) {
     var marker = L.marker([parseFloat(data[i].lat), parseFloat(data[i].lng)]);
