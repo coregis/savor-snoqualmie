@@ -1,6 +1,6 @@
 //replace the url for the spreadsheet being mapped here
 window.onload=function(){
-	getSpreadsheet('https://docs.google.com/spreadsheets/d/15JXa1bIRTXWj4cNQldh1UEZFVkRQk0DoLvHc4dWuSl8/pubhtml');
+	getSpreadsheet('https://docs.google.com/spreadsheets/d/1RnULjaAdDZ8VUCgwO61eItVujAbpSZuEnK0hIBLVGns/pubhtml');
 }
 
 function getSpreadsheet(key){
@@ -52,10 +52,7 @@ function metadata(properties) {
     var prop = obj[p];
     if (prop != 'lat' &&
         prop != 'lng' &&
-        prop != 'loclink' &&
-        prop != 'coordinatesource' &&
-        prop != 'updater' &&
-        prop != 'updated' &&		
+        prop != 'marker-color' &&		
         prop != 'rowNumber') {
       info += "<p><strong>"+prop+"</strong>: "+properties[prop]+"</p>";
     }
