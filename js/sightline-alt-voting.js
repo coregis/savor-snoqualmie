@@ -30,8 +30,20 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
     "Points": points
   };
 
+  /*
+  Need to figure out how to style the points stored in overlayMaps using the attribute marker-color from the Google spreadsheet from line 3; the code below is from a jsfiddle I found at http://jsfiddle.net/erictheise/HQhzr/22/
+  */
+  
+  /*
+   {
+    style: function(feature) {
+        return {color: feature.properties.marker-color};
+    },
+  */
+  
   L.control.layers(false, overlayMaps).addTo(map);
   map.addLayer(points);
+  
   
   var bounds = points.getBounds();
   map.fitBounds(bounds, {padding:[10,10]});
@@ -45,6 +57,11 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
 }
 
 //add fields here that you do not want displayed in the popupInfo. Must be all lowercase
+/*
+NEED TO FIGURE OUT HOW TO SHOW ONLY NON-NULL FIELDS IN THE POPUP;
+ALSO NEED TO FIGURE OUT HOW TO SHOW MULTIPLE IMAGES IN A GALLERY/SLID-SHOW. BELOW IS AN EXAMPLE:
+https://www.mapbox.com/mapbox.js/example/v1.0.0/markers-with-image-slideshow/
+*/
 function metadata(properties) {
   var obj = Object.keys(properties);
   var info = "";
