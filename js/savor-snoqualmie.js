@@ -128,18 +128,19 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
 	  }
 	  return "black.svg";
   }
-	
-    marker.bindPopup(popupInfo);
-    points.addLayer(marker);
-  }
-
-  var overlayMaps = {
-    "Points": points
-  };
 
   L.control.layers(false, overlayMaps).addTo(map);
-  map.addLayer(points);
-  
+  map.addLayer(artsCulture);
+  map.addLayer(farmActivities);
+  map.addLayer(foodDrink);
+  map.addLayer(heritage);
+  map.addLayer(infoCenters);
+  map.addLayer(farmProducts);
+  map.addLayer(lodging);
+  map.addLayer(publicRestrooms);
+  map.addLayer(recreation);
+  map.addLayer(uniqueGifts);
+
   var bounds = points.getBounds();
   map.fitBounds(bounds, {padding:[10,10]});
 
@@ -153,18 +154,26 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
 
 //add fields here that you do not want displayed in the popupInfo. Must be all lowercase
 function metadata(properties) {
+  //This is equivalent to the first row of the spreadsheet, these are the field names; field names are called keys
   var obj = Object.keys(properties);
+  //This is all of the HTML that goes into the popup
   var info = "";
   for(var p=0; p<obj.length; p++) {
     var prop = obj[p];
     if (prop != 'lat' &&
         prop != 'lng' &&
+        prop != 'theme' &&		
         prop != 'loclink' &&
-        prop != 'coordinatesource' &&
-        prop != 'updater' &&
-        prop != 'updated' &&		
-        prop != 'rowNumber') {
-      info += "<p><strong>"+prop+"</strong>: "+properties[prop]+"</p>";
+		prop != 'map-category' &&
+		prop != 'subcategory' &&
+		prop != 'coodrinatesource' &&
+		prop != 'updater' &&
+		prop != 'updated' &&
+		properties[prop].length > 0) {
+      //prop is the field name from the spreadsheet; properties is the geoJSON generated from one row of the spreadsheet
+	  //INSTEAD OF PROP, NEED TO WRITE A NEW FUNCTION THAT DOES TEXT SUBSTITUTIONS
+	  //get rid of <strong>"+prop+"</strong>: to not show the field names in the popup
+	  info += "<p class='"+prop+"'><strong>"+prop+"</strong>: "+properties[prop]+"</p>";
     }
   }
   console.log(info);
