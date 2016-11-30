@@ -36,7 +36,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
     var popupInfo = metadata(data[i]);
 	
 	//type in your desired dimensions for the markers; the marker will always be square
-	var iconDim = 30;
+	var iconDim = 28;
 	category = data[i].category.toLowerCase();
 	marker.setIcon( L.icon({
 		iconUrl: "markers/" + chooseIcon(category),
@@ -97,34 +97,34 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
   
   function chooseIcon(category) {  
 	  if (category === "arts and culture") {
-		  return "336699-15.svg";
+		  return "0A5446-15.svg";
 	  }
 	  else if (category === "farm activities") {
-		  return "cc3333-15.svg";
+		  return "368FB6-15.svg";
 	  }
 	  else if (category === "food and drink") {
-		  return "cc3333-15.svg";
+		  return "2E592E-15.svg";
 	  }
 	  else if (category === "heritage") {
-		  return "fc9d9d-15.svg";
+		  return "5B871D-15.svg";
 	  }
 	  else if (category === "information centers") {
-		  return "ffff00-15.svg";
+		  return "29A39D-15.svg";
 	  }
 	  else if (category === "local farm products") {
-		  return "cc3333-15.svg";
+		  return "1E1E06-15.svg";
 	  }
 	  else if (category === "lodging") {
-		  return "cc3333-15.svg";
+		  return "A64E28-15.svg";
 	  }
 	  else if (category === "public restrooms") {
-		  return "fc9d9d-15.svg";
+		  return "84A9A1-15.svg";
 	  }
 	  else if (category === "recreation") {
-		  return "ffff00-15.svg";
+		  return "368FB6-15.svg";
 	  }
 	  else if (category === "unique gifts and collectibles") {
-		  return "ffff00-15.svg";
+		  return "5B871D-15.svg";
 	  }
 	  return "black.svg";
   }
@@ -142,7 +142,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
   map.addLayer(uniqueGifts);
 
   var bounds = points.getBounds();
-  map.fitBounds(bounds, {padding:[10,10]});
+  map.fitBounds(bounds, {padding:[8,8]});
 
   map.setView(map.getCenter());
 
@@ -162,18 +162,20 @@ function metadata(properties) {
     var prop = obj[p];
     if (prop != 'lat' &&
         prop != 'lng' &&
-        prop != 'theme' &&		
+        prop != 'theme' &&
+        prop != 'category' &&		
         prop != 'loclink' &&
 		prop != 'map-category' &&
 		prop != 'subcategory' &&
-		prop != 'coodrinatesource' &&
+		prop != 'coordinatesource' &&
+		//prop != 'zip' &&
 		prop != 'updater' &&
 		prop != 'updated' &&
 		properties[prop].length > 0) {
       //prop is the field name from the spreadsheet; properties is the geoJSON generated from one row of the spreadsheet
 	  //INSTEAD OF PROP, NEED TO WRITE A NEW FUNCTION THAT DOES TEXT SUBSTITUTIONS
 	  //get rid of <strong>"+prop+"</strong>: to not show the field names in the popup
-	  info += "<p class='"+prop+"'><strong>"+prop+"</strong>: "+properties[prop]+"</p>";
+	  info += "<p class='"+prop+"'>"+properties[prop]+"</p>";
     }
   }
   console.log(info);
