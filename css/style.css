@@ -3,8 +3,59 @@ body {
 	padding:0;
 	margin:0;
 }
+/*This is formatting for the first line in the popup */
+p.placename {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+}
+
+p.original-category {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 16px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: normal;
+}
+
+.leaflet-popup-content {
+  background:#42565B;
+  color:#fff;
+  font-size:16px;
+  }
+  
+.leaflet-popup-content-wrapper {
+  background:#42565B;
+  padding:1px;
+  text-align:left;
+  pointer-events:all;
+  line-height:24px;
+  } 
+
+.leaflet-popup-tip {
+  width:0;
+  height:0;
+  margin:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-top:10px solid #42565B;
+  box-shadow:none;
+  } 
+  
+a:link{
+  color:#CCE2EC;
+}
+
+a:visited{
+  color:#CCE2EC;
+}
+
 #map {
 	position:absolute;
 	width:100%;
 	height:100%;
 }
+
+	
