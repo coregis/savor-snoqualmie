@@ -1,6 +1,6 @@
 //replace the url for the spreadsheet being mapped here
 window.onload=function(){
-	getSpreadsheet('https://docs.google.com/spreadsheets/d/15JXa1bIRTXWj4cNQldh1UEZFVkRQk0DoLvHc4dWuSl8/pubhtml');
+	getSpreadsheet('https://docs.google.com/spreadsheets/d/1ptSzQ3Z8WLRibq_f3K8TedYReZNH4sVYXMBO-TgEsLU/pubhtml');
 }
 
 function getSpreadsheet(key){
@@ -166,9 +166,13 @@ function metadata(properties) {
         prop != 'category' &&		
         prop != 'loclink' &&
 		prop != 'map-category' &&
+		prop != 'itinerary' &&		
 		prop != 'subcategory' &&
 		prop != 'coordinatesource' &&
-		//prop != 'zip' &&
+		prop != 'phone' &&
+		prop != 'address' &&
+		prop != 'city' &&		
+		prop != 'zip' &&
 		prop != 'updater' &&
 		prop != 'updated' &&
 		properties[prop].length > 0) {
