@@ -6,19 +6,37 @@ body {
 
 /*This is formatting for the first line in the popup */
 p.placename {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 20px;
+	font-family: "CHEAPPINE-SANS", Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 30px;
+	line-height:  26px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: bold;
+	font-weight: normal;
 	color: #C1D3D0;
 }
 
 /*This is formatting for the second line in the popup */
 p.original-category {
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 16px;
+	font-family: "Cervo-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 24px;
 	font-style: italic;
+	font-variant: normal;
+	font-weight: normal;
+}
+
+p.description {
+	font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+}
+
+/*This is formatting for all other text in the popup */
+p {
+	font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
 }
@@ -26,7 +44,7 @@ p.original-category {
 .leaflet-popup-content {
   background: #42565B;
   color:#fff;
-  font-size:12px;
+  font-size:20px;
   }
   
 .leaflet-popup-content-wrapper {
@@ -63,10 +81,20 @@ p.original-category {
   
 a:link{
   color:#CCE2EC;
+  font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
 }
 
 a:visited{
   color:#CCE2EC;
+  font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
 }
 
 #map {
