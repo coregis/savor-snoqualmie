@@ -36,7 +36,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
     var popupInfo = metadata(data[i]);
 	
 	//type in your desired dimensions for the markers; the marker will always be square
-	var iconDim = 28;
+	var iconDim = 34
 	category = data[i].category.toLowerCase();
 	marker.setIcon( L.icon({
 		iconUrl: "markers/" + chooseIcon(category),
@@ -97,34 +97,34 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
   
   function chooseIcon(category) {  
 	  if (category === "arts and culture") {
-		  return "0A5446-15.svg";
+		  return "custom/arts.svg";
 	  }
 	  else if (category === "farm activities") {
-		  return "368FB6-15.svg";
+		  return "custom/farm_activities.svg";
 	  }
 	  else if (category === "food and drink") {
-		  return "2E592E-15.svg";
+		  return "custom/food_and_drink.svg";
 	  }
 	  else if (category === "heritage") {
-		  return "5B871D-15.svg";
+		  return "custom/heritage.svg";
 	  }
 	  else if (category === "information centers") {
-		  return "29A39D-15.svg";
+		  return "custom/information.svg";
 	  }
 	  else if (category === "local farm products") {
-		  return "1E1E06-15.svg";
+		  return "custom/local_farms.svg";
 	  }
 	  else if (category === "lodging") {
-		  return "A64E28-15.svg";
+		  return "custom/lodging.svg";
 	  }
 	  else if (category === "public restrooms") {
-		  return "84A9A1-15.svg";
+		  return "custom/restrooms.svg";
 	  }
 	  else if (category === "recreation") {
-		  return "368FB6-15.svg";
+		  return "custom/recreation.svg";
 	  }
 	  else if (category === "unique gifts and collectibles") {
-		  return "5B871D-15.svg";
+		  return "custom/gifts.svg";
 	  }
 	  return "black.svg";
   }
