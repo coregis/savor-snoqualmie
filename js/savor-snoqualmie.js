@@ -1,6 +1,6 @@
 //replace the url for the spreadsheet being mapped here
 window.onload=function(){
-	getSpreadsheet('https://docs.google.com/spreadsheets/d/1ptSzQ3Z8WLRibq_f3K8TedYReZNH4sVYXMBO-TgEsLU/pubhtml');
+	getSpreadsheet('https://docs.google.com/spreadsheets/d/1RLYfBq2Jy-TOoP95jSEvU1tzVodSECP2g4t_DUz2v1U/pubhtml');
 }
 
 function getSpreadsheet(key){
@@ -17,6 +17,14 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
 
   // build map
   var map = L.mapbox.map('map', 'mapbox.outdoors').setView([0,0],1);
+  map.options.minZoom = 9;
+  map.options.maxZoom = 20;
+  map.setMaxBounds([
+	[47.306706, -122.479706], //southwest corner coods
+    [47.895169, -121.288376] //northeast corner coords
+	])
+  
+  
   var points = L.featureGroup();
   var artsCulture = L.featureGroup();
   var farmActivities = L.featureGroup();
@@ -47,7 +55,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
 		shadowSize: [68, 95],
 		shadowAnchor: [22, 94]*/
 	}));
-    marker.bindPopup(popupInfo);
+    marker.bindPopup(popupInfo,{'autoPan':'true','keepInView':'true'});
     points.addLayer(marker);
 	if (category === "arts and culture") {
 	  artsCulture.addLayer(marker);
@@ -141,9 +149,16 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
   map.addLayer(recreation);
   map.addLayer(uniqueGifts);
 
+  //This sets the bounds to the extent of the data
   var bounds = points.getBounds();
   map.fitBounds(bounds, {padding:[8,8]});
 
+  /*var bounds = [
+    [-122.397995, 47.373710], // Southwest coordinates
+    [-121.122208, 47.832057]  // Northeast coordinates
+];
+  */
+  
   map.setView(map.getCenter());
 
   map.on('click', function(e) {
@@ -165,7 +180,6 @@ function metadata(properties) {
         prop != 'theme' &&
         prop != 'category' &&		
         prop != 'loclink' &&
-		prop != 'map-category' &&
 		prop != 'itinerary' &&		
 		prop != 'subcategory' &&
 		prop != 'coordinatesource' &&
@@ -177,7 +191,6 @@ function metadata(properties) {
 		prop != 'updated' &&
 		properties[prop].length > 0) {
       //prop is the field name from the spreadsheet; properties is the geoJSON generated from one row of the spreadsheet
-	  //INSTEAD OF PROP, NEED TO WRITE A NEW FUNCTION THAT DOES TEXT SUBSTITUTIONS
 	  //get rid of <strong>"+prop+"</strong>: to not show the field names in the popup
 	  info += "<p class='"+prop+"'>"+properties[prop]+"</p>";
     }
