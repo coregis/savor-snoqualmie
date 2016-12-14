@@ -20,8 +20,8 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
   map.options.minZoom = 9;
   map.options.maxZoom = 20;
   map.setMaxBounds([
-	[47.306706, -122.479706], //southwest corner coods
-    [47.895169, -121.288376] //northeast corner coords
+	[47.306706, -122.479706], //southwest map coordinates
+    [47.895169, -121.288376] //northeast map coordinates 
 	])
   
   
@@ -149,13 +149,14 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiY29yZS1naXMiLCJhIjoiaUxqQS1zQSJ9.mDT5nb8l_dWI
   map.addLayer(recreation);
   map.addLayer(uniqueGifts);
 
-  //This sets the bounds to the extent of the data
+  //This dynamically sets the bounds to the extent of the data
   var bounds = points.getBounds();
-  map.fitBounds(bounds, {padding:[8,8]});
+  map.fitBounds(bounds, {padding:[10,10]});
 
+  //Use this to hard-code the extent
   /*var bounds = [
-    [-122.397995, 47.373710], // Southwest coordinates
-    [-121.122208, 47.832057]  // Northeast coordinates
+    [-122.397995, 47.373710], // southwest map coordinates
+    [-121.122208, 47.832057]  // northeast map coordinates
 ];
   */
   
