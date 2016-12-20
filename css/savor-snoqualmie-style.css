@@ -3,43 +3,35 @@ body {
 	padding:0;
 	margin:0;
 }
+/*This is formatting for all other text in the popup */
+.leaflet-popup-content p {
+  font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+}
 
 /*This is formatting for the first line in the popup */
 p.placename {
 	font-family: "CHEAPPINE-SANS", Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 30px;
 	line-height:  26px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
 	color: #C1D3D0;
 }
 
 /*This is formatting for the second line in the popup */
-p.original-category {
-	font-family: "Cervo-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 24px;
-	font-style: italic;
-	font-variant: normal;
-	font-weight: normal;
-}
-
-p.description {
-	font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
+p.categorylist {
 	font-size: 18px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
+}
+p.subcategorylist {
+  font-size: 18px;
+}
+p.description {
+	font-size: 18px;
 }
 
-/*This is formatting for all other text in the popup */
-p {
-	font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
-	font-size: 24px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: normal;
-}
+
 
 .leaflet-popup-content {
   background: #42565B;
@@ -78,29 +70,29 @@ p {
   display: block;
   color: #fff
   }
-  
-a:link{
-  color:#CCE2EC;
-  font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
+  .leaflet-control-layers-list {
+    font-family: "Cervo-Regular", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+  }
+  .leaflet-control-layers-list img{
+    height: 34px;
+    width: 34px;
+  }
+
+.ssv-map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  border: 1px solid #ccc;
 }
 
-a:visited{
-  color:#CCE2EC;
-  font-family: "Cervo-Regular", Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-}
-
-#map {
-	position:absolute;
-	width:100%;
-	height:100%;
+#map, #ssv-map {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 }
 /* This will be used to style the legend once we have the custom icons*/
 /*table {
